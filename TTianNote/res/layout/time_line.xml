@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <com.gmy.ttiannote.widget.TitleImageView 
+        android:id="@+id/timetitle_iv"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:src="@drawable/title_background"
+        android:scaleType="fitXY"
+        />
+    <!-- 注意divider 的属性设置成@null才是完全没有 不能用0dp表示 -->
+	<com.gmy.ttiannote.widget.TimeListView 
+	    android:id="@+id/timeline_lv"
+	    android:layout_height="match_parent"
+	    android:layout_width="match_parent"
+	    android:layout_below="@id/timetitle_iv"
+	    android:layout_marginTop="1dp" 
+	    android:divider="@null"
+	    android:cacheColorHint="@null"
+	    ></com.gmy.ttiannote.widget.TimeListView>
+	
+	<!-- 自定义头像组建 -->
+	<ImageView 
+        android:id="@+id/potrait_iv"
+        android:layout_width="60dp"
+		android:layout_height="60dp"
+		android:layout_marginTop="15dp"
+		android:layout_marginLeft="9dp" 
+		android:src="@drawable/ic_launcher"  
+		android:scaleType="fitXY"
+        />
+</RelativeLayout>
