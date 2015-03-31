@@ -34,7 +34,7 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 	private final String[] imageChoice=new String[]{"拍照","图册"};
 	private List<ImageView> mImageViews;
 	private MyLongClickListener myLongClickListener;
-	private Boolean haveStartAnimation = false;
+	private Boolean haveStartAnimation = false; //测试
 	
 	public RightFragment() {
 		// TODO Auto-generated constructor stub
