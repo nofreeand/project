@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    <ImageView 
+        android:id="@+id/bottom_func_click_save"
+        android:src="@drawable/bottom_129"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        />
+    <ImageView 
+        android:id="@+id/bottom_func_click_share"
+        android:src="@drawable/bottom_130"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        />
+    <ImageView 
+        android:id="@+id/bottom_func_click_back"
+        android:src="@drawable/bottom_131"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        />
+	<ImageView 
+        android:id="@+id/bottom_func_click"
+        android:src="@drawable/bottom_128"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</RelativeLayout>

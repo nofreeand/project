@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private Fragment mLeftFragment, mMidFragment, mRightFragment;
 	private ArrayList<Fragment> fragmentLists;
 	private MyFragementAdapter mAdapter;
-	private Button leftBottomButton, midBottomButton, rightBottomButton;
+	//private Button leftBottomButton, midBottomButton, rightBottomButton; 底部选择图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private void findViewById() {
 		// TODO Auto-generated method stub
 		mViewPager = (ViewPager) findViewById(R.id.main_vp);
-		leftBottomButton = (Button) findViewById(R.id.leftbottom_tv);
-		midBottomButton = (Button) findViewById(R.id.midbottom_tv);
-		rightBottomButton = (Button) findViewById(R.id.rightbottom_tv);
+//		leftBottomButton = (Button) findViewById(R.id.leftbottom_tv);
+//		midBottomButton = (Button) findViewById(R.id.midbottom_tv);
+//		rightBottomButton = (Button) findViewById(R.id.rightbottom_tv);
 	}
 
 	private void initData() {
@@ -85,9 +85,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		mViewPager.setPageTransformer(true, new ViewPagerAnimaiton());
 		// 监听事件绑定
 
-		leftBottomButton.setOnClickListener(this);
-		midBottomButton.setOnClickListener(this);
-		rightBottomButton.setOnClickListener(this);
+//		leftBottomButton.setOnClickListener(this);
+//		midBottomButton.setOnClickListener(this);
+//		rightBottomButton.setOnClickListener(this);
 
 		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 
