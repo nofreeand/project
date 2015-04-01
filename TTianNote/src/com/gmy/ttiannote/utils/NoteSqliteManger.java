@@ -1,12 +1,16 @@
 package com.gmy.ttiannote.utils;
 
-import android.R.raw;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.gmy.ttiannote.dao.NoteContentDAO;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class NoteSqliteManger {
-
 	public NoteSqliteManger() {
 		// TODO Auto-generated constructor stub
 	}
@@ -18,6 +22,34 @@ public class NoteSqliteManger {
 			return nManger = new NoteSqliteManger();
 		}
 		return nManger;
+	}
+	
+	public List<NoteContentDAO> selectSql(Context context,String[] columns, String selection,
+            String[] selectionArgs, String groupBy, String having,String orderBy){
+		SQLiteDatabase sqLiteDatabase=null;
+		List<NoteContentDAO> mList=new ArrayList<NoteContentDAO>();
+		try {
+			sqLiteDatabase=NoteSqliteHelper.getDbHelper(context).getWritableDatabase();
+			Cursor mCursor=sqLiteDatabase.query("NoteList", columns, selection, selectionArgs, groupBy, having, orderBy);
+			while (mCursor.moveToNext()) {
+				NoteContentDAO mDao=new NoteContentDAO();
+				mDao.set_id(mCursor.getInt(mCursor.getColumnIndex("_id")));
+				mDao.setTitle(mCursor.getString(mCursor.getColumnIndex("title")));
+				mDao.setContent(mCursor.getString(mCursor.getColumnIndex("content")));
+				mDao.setImagePathOne(mCursor.getString(mCursor.getColumnIndex("imagePathOne")));
+				mDao.setImagePathTwo(mCursor.getString(mCursor.getColumnIndex("imagePathTwo")));
+				mDao.setImagePathThree(mCursor.getString(mCursor.getColumnIndex("imagePathThree")));
+				mDao.setImagePathFour(mCursor.getString(mCursor.getColumnIndex("imagePathFour")));
+				mDao.setTime(mCursor.getString(mCursor.getColumnIndex("time")));
+				mList.add(mDao);
+			}
+			mCursor.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			sqLiteDatabase.close();
+		}
+		return mList;
 	}
 
 	public boolean insertSql(Context context, ContentValues values) {

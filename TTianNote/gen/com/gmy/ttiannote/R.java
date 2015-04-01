@@ -164,10 +164,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_background=0x7f02000d;
     }
     public static final class id {
-        public static final int action_settings=0x7f060025;
-        public static final int add_image_bt=0x7f060019;
-        public static final int add_image_ll=0x7f060014;
-        public static final int bottom_doc_func=0x7f06001b;
+        public static final int action_settings=0x7f060024;
+        public static final int add_image_bt=0x7f060018;
+        public static final int add_image_ll=0x7f060013;
+        public static final int bottom_doc_func=0x7f06001a;
         public static final int bottom_func_click=0x7f06000a;
         public static final int bottom_func_click_back=0x7f060009;
         public static final int bottom_func_click_save=0x7f060007;
@@ -176,32 +176,31 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int cloud_one_iv=0x7f06000e;
         public static final int cloud_three_iv=0x7f060010;
         public static final int cloud_two_iv=0x7f06000f;
-        public static final int content_tv=0x7f060024;
+        public static final int content_tv=0x7f060023;
         public static final int fullscreen=0x7f060003;
-        public static final int image_four=0x7f060018;
-        public static final int image_one=0x7f060015;
-        public static final int image_three=0x7f060017;
-        public static final int image_two=0x7f060016;
+        public static final int image_four=0x7f060017;
+        public static final int image_one=0x7f060014;
+        public static final int image_three=0x7f060016;
+        public static final int image_two=0x7f060015;
         public static final int left=0x7f060000;
         public static final int leftbottom_tv=0x7f06000b;
         public static final int main_vp=0x7f060006;
         public static final int margin=0x7f060002;
         public static final int midbottom_tv=0x7f06000c;
         public static final int none=0x7f060004;
-        public static final int note_et=0x7f06001a;
-        public static final int note_layout=0x7f06001c;
-        public static final int note_save_bt=0x7f060013;
-        public static final int notetime_tv=0x7f060022;
-        public static final int potrait_iv=0x7f060021;
+        public static final int note_et=0x7f060019;
+        public static final int note_layout=0x7f06001b;
+        public static final int notetime_tv=0x7f060021;
+        public static final int potrait_iv=0x7f060020;
         public static final int right=0x7f060001;
         public static final int rightbottom_tv=0x7f06000d;
-        public static final int rightdata_lv=0x7f06001d;
+        public static final int rightdata_lv=0x7f06001c;
         public static final int rightmenu_tv=0x7f060012;
         public static final int selected_view=0x7f060005;
-        public static final int slidingmenumain=0x7f06001e;
-        public static final int state_iv=0x7f060023;
-        public static final int timeline_lv=0x7f060020;
-        public static final int timetitle_iv=0x7f06001f;
+        public static final int slidingmenumain=0x7f06001d;
+        public static final int state_iv=0x7f060022;
+        public static final int timeline_lv=0x7f06001f;
+        public static final int timetitle_iv=0x7f06001e;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -227,6 +226,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int action_settings=0x7f090002;
         public static final int app_name=0x7f090000;
         public static final int hello_world=0x7f090001;
+        public static final int note_hint=0x7f090004;
         public static final int timeline_tile=0x7f090003;
     }
     public static final class style {

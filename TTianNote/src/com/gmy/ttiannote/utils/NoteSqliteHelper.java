@@ -11,7 +11,10 @@ public class NoteSqliteHelper extends SQLiteOpenHelper {
 	private String sql="create table if not exists NoteList"+"(_id integer primary key autoincrement,"
 						+ "title varchar(50),"
 						+ "content varchar(50),"
-						+ "imagePath varchar(50),"
+						+ "imagePathOne varchar(50),"
+						+ "imagePathTwo varchar(50),"
+						+ "imagePathThree varchar(50),"
+						+ "imagePathFour varchar(50),"
 						+ "time varchar(50)"
 						+ ")";
 	private static NoteSqliteHelper sqliteHelper;
