@@ -1,22 +1,21 @@
 package com.gmy.ttiannote.fragment;
 
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import android.R.dimen;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnLongClickListener;
@@ -27,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.gmy.ttiannote.R;
+import com.gmy.ttiannote.activity.ImageShowActivity;
 import com.gmy.ttiannote.displayUtils.FuntionTools;
 import com.gmy.ttiannote.utils.DocUtils;
 import com.gmy.ttiannote.utils.NoteAnimationUtils;
@@ -40,7 +40,7 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 	private ImageView mImageOne,mImageTwo,mImageThree,mImageFour;//拍照生成的缩略图
 	private ImageView mBottomClick,mBottomSave,mBottomShare,mBottomBack;
 	private final String[] imageChoice=new String[]{"拍照","图册"};
-	private List<ImageView> mImageViews;
+	private LinkedHashMap<ImageView,String> mImageViews;
 	private MyLongClickListener myLongClickListener;
 	private Boolean haveStartAnimation = false;
 	
@@ -48,6 +48,7 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 	private String imagePath;
 	
 	private static final int QUERY_IMAGE=1;
+	private static final int CHOOSE_IMAGE=2;
 	public RightFragment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -75,20 +76,29 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 		mBottomShare=(ImageView) view.findViewById(R.id.bottom_func_click_share);
 		mBottomBack=(ImageView) view.findViewById(R.id.bottom_func_click_back);
 		
-		mImageAddButton.setOnClickListener(this);
-		mBottomClick.setOnClickListener(this);
+		
 	}
 	
 	private void initData() {
+		
+		mImageViews=new LinkedHashMap<ImageView,String>();
+		mImageViews.put(mImageOne,"1");
+		mImageViews.put(mImageTwo,"2");
+		mImageViews.put(mImageThree,"3");
+		mImageViews.put(mImageFour,"4");
+		
+		mImageAddButton.setOnClickListener(this);
+		mBottomClick.setOnClickListener(this);
+		mImageOne.setOnClickListener(this);
+		mImageTwo.setOnClickListener(this);
+		mImageThree.setOnClickListener(this);
+		mImageFour.setOnClickListener(this);
+		
 		myLongClickListener=new MyLongClickListener();
-		mImageViews=new ArrayList<ImageView>();
-		mImageViews.add(mImageOne);
-		mImageViews.add(mImageTwo);
-		mImageViews.add(mImageThree);
-		mImageViews.add(mImageFour);
-		for(ImageView imageViews:mImageViews){
-			imageViews.setOnLongClickListener(myLongClickListener);//绑定长按监听
-		}
+		mImageOne.setOnLongClickListener(myLongClickListener);//绑定长按监听
+		mImageTwo.setOnLongClickListener(myLongClickListener);
+		mImageThree.setOnLongClickListener(myLongClickListener);
+		mImageFour.setOnLongClickListener(myLongClickListener);
 	}
 
 	@Override
@@ -97,38 +107,47 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 		super.onActivityCreated(savedInstanceState);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if(resultCode==Activity.RESULT_OK){
 			switch (requestCode) {
-			case QUERY_IMAGE://
-				for(int x=0;x<mImageViews.size();x++){
-					if(mImageViews.get(x).getVisibility()==View.GONE){
-						mImageViews.get(x).setVisibility(View.VISIBLE);
-						System.out.println("image---width--height===="+mImageViews.get(x).getWidth()+"==="+mImageViews.get(x).getHeight());
-						mImageViews.get(x).setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(getActivity(), 70), 
-																				     FuntionTools.dip2px(getActivity(), 70), imagePath));
-														  						
-						break;
-					}
-				}
-				if(mImageFour.getVisibility()==View.VISIBLE){
-					Toast.makeText(getActivity(), "拍这么多照片好么...要矜持", Toast.LENGTH_SHORT).show();
-					mImageAddButton.setVisibility(View.GONE);
-				}
+			case QUERY_IMAGE:
+				setPic(imagePath);
 				break;
-
+			case CHOOSE_IMAGE://获取图片的真实地址进行操作
+				ContentResolver resolver=getActivity().getContentResolver();
+				Uri uri=data.getData();
+			    String [] proj={MediaStore.Images.Media.DATA};  
+			    Cursor cursor = getActivity().managedQuery( uri,  
+			                proj,                 // Which columns to return  
+			                null,       // WHERE clause; which rows to return (all rows)  
+			                null,       // WHERE clause selection arguments (none)  
+			                null);                 // Order-by clause (ascending by name)  
+			          
+			    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);  
+			    cursor.moveToFirst();  
+			    imagePath= cursor.getString(column_index); 
+				setPic(imagePath);
+				break;
 			default:
 				break;
 			}
 		}
 	}
 
+	
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		if(v.getId()==R.id.image_one || v.getId()==R.id.image_two ||v.getId()==R.id.image_three || v.getId()==R.id.image_four ){
+			Intent mIntent=new Intent(getActivity(),ImageShowActivity.class);
+			mIntent.putExtra("pic", mImageViews.get(getActivity().findViewById(v.getId())));
+			startActivity(mIntent);
+		}
 		switch (v.getId()) {
 		case R.id.add_image_bt://添加图片按钮
 			new AlertDialog.Builder(getActivity())
@@ -145,8 +164,11 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 									imagePath=mImageUri.getPath();
 									intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
 									startActivityForResult(intent, QUERY_IMAGE);
+									break;
 								case 1://相册
-									Toast.makeText(getActivity(), "1", Toast.LENGTH_SHORT).show();
+									Intent intent2=new Intent(Intent.ACTION_GET_CONTENT);
+									intent2.setType("image/*");
+									startActivityForResult(intent2, CHOOSE_IMAGE);
 									break;
 								default:
 									break;
@@ -169,7 +191,6 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 				haveStartAnimation=false;
 				return;
 			}
-			Toast.makeText(getActivity(), "底部点击",Toast.LENGTH_SHORT).show();
 			break;
 		default:
 			break;
@@ -189,9 +210,26 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 					}
 				}
 			}
-			return false;
+			return true;
 		}
-		
+	}
+	
+	private void setPic(String imagePath) {
+		for(Map.Entry<ImageView,String> entry:mImageViews.entrySet()){
+			if(entry.getKey().getVisibility()==View.GONE){
+				entry.getKey().setVisibility(View.VISIBLE);
+				//在这里getWidth().getHeight();值是零
+				Log.i("show pic path", imagePath);
+				mImageViews.put(entry.getKey(),imagePath);
+				entry.getKey().setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(getActivity(), 70), 
+																		     FuntionTools.dip2px(getActivity(), 70), imagePath));
+				break;
+			}
+		}
+		if( mImageFour.getVisibility()==View.VISIBLE){
+			Toast.makeText(getActivity(), "拍这么多照片好么...要矜持", Toast.LENGTH_SHORT).show();
+			mImageAddButton.setVisibility(View.GONE);
+		}
 	}
 
 }
