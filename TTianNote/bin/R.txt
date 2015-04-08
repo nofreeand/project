@@ -37,7 +37,7 @@ int drawable note_frame 0x7f02000a
 int drawable over_star_1 0x7f02000b
 int drawable right 0x7f02000c
 int drawable title_background 0x7f02000d
-int id action_settings 0x7f060025
+int id action_settings 0x7f060029
 int id add_image_bt 0x7f060019
 int id add_image_ll 0x7f060014
 int id bottom_doc_func 0x7f06001b
@@ -49,7 +49,7 @@ int id cloud_four_iv 0x7f060012
 int id cloud_one_iv 0x7f06000f
 int id cloud_three_iv 0x7f060011
 int id cloud_two_iv 0x7f060010
-int id content_tv 0x7f060024
+int id content_tv 0x7f060028
 int id fullscreen 0x7f060003
 int id image_four 0x7f060018
 int id image_one 0x7f060015
@@ -73,6 +73,10 @@ int id selected_view 0x7f060005
 int id show_image 0x7f060006
 int id slidingmenumain 0x7f06001e
 int id state_iv 0x7f060023
+int id time_line_iv_four 0x7f060027
+int id time_line_iv_one 0x7f060024
+int id time_line_iv_three 0x7f060026
+int id time_line_iv_two 0x7f060025
 int id timeline_lv 0x7f060020
 int id timetitle_iv 0x7f06001f
 int layout activity_imageshow 0x7f030000

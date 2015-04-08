@@ -164,7 +164,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_background=0x7f02000d;
     }
     public static final class id {
-        public static final int action_settings=0x7f060025;
+        public static final int action_settings=0x7f060029;
         public static final int add_image_bt=0x7f060019;
         public static final int add_image_ll=0x7f060014;
         public static final int bottom_doc_func=0x7f06001b;
@@ -176,7 +176,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int cloud_one_iv=0x7f06000f;
         public static final int cloud_three_iv=0x7f060011;
         public static final int cloud_two_iv=0x7f060010;
-        public static final int content_tv=0x7f060024;
+        public static final int content_tv=0x7f060028;
         public static final int fullscreen=0x7f060003;
         public static final int image_four=0x7f060018;
         public static final int image_one=0x7f060015;
@@ -200,6 +200,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int show_image=0x7f060006;
         public static final int slidingmenumain=0x7f06001e;
         public static final int state_iv=0x7f060023;
+        public static final int time_line_iv_four=0x7f060027;
+        public static final int time_line_iv_one=0x7f060024;
+        public static final int time_line_iv_three=0x7f060026;
+        public static final int time_line_iv_two=0x7f060025;
         public static final int timeline_lv=0x7f060020;
         public static final int timetitle_iv=0x7f06001f;
     }

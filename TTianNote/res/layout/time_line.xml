@@ -12,7 +12,7 @@
     <!-- 注意divider 的属性设置成@null才是完全没有 不能用0dp表示 -->
 	<com.gmy.ttiannote.widget.TimeListView 
 	    android:id="@+id/timeline_lv"
-	    android:layout_height="match_parent"
+	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
 	    android:layout_below="@id/timetitle_iv"
 	    android:layout_marginTop="1dp" 

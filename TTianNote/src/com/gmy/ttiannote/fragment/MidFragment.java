@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.gmy.ttiannote.R;
 import com.gmy.ttiannote.adapter.NoteListAdapter;
+import com.gmy.ttiannote.dao.NoteContentDAO;
+import com.gmy.ttiannote.utils.NoteSqliteManger;
 import com.gmy.ttiannote.widget.TimeListView;
 
 import android.app.Activity;
@@ -16,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 public class MidFragment extends Fragment {
-	private List<String> mList;
+	private List<NoteContentDAO> mList;
 	private com.gmy.ttiannote.widget.TimeListView mTimeListView; 
 	private NoteListAdapter mAdapter;
 	private Activity mActivity;
@@ -28,11 +30,7 @@ public class MidFragment extends Fragment {
 	
 	private void initData(){
 		// TODO Auto-generated method stub
-		mList=new ArrayList<String>();
-		for(int x=0;x<20;x++){
-			mList.add(x+"");
-		}
-		
+		mList=NoteSqliteManger.getInstance().selectSql(getActivity(), null, null, null, null, null, null);
 		mAdapter=new NoteListAdapter(mList, mActivity);
 	}
 
@@ -61,5 +59,12 @@ public class MidFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		initData();
 		mTimeListView.setAdapter(mAdapter);
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
 	}
 }

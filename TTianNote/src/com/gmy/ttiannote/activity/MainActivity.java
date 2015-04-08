@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -40,7 +41,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		initLayout();
 
 	}
-
 	private void findViewById() {
 		// TODO Auto-generated method stub
 		mViewPager = (ViewPager) findViewById(R.id.main_vp);
@@ -133,6 +133,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			break;
 		}
 	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO Auto-generated method stub
+		
+		return super.onTouchEvent(event);
+	}
 
 	private class MyFragementAdapter extends FragmentPagerAdapter {
 		private ArrayList<Fragment> list;
@@ -162,7 +169,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		@Override
 		public void transformPage(View view, float position) {
 			// TODO Auto-generated method stub
-			System.out.println("view"+view.hashCode()+"position===="+position);
 			if(position<-1){
 				view.setAlpha(0);
 			}else if (position<=0) {//-1,0 09 08 07 06

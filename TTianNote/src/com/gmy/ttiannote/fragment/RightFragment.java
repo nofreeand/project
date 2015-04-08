@@ -7,6 +7,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import com.gmy.ttiannote.activity.ImageShowActivity;
 import com.gmy.ttiannote.displayUtils.FuntionTools;
 import com.gmy.ttiannote.utils.DocUtils;
 import com.gmy.ttiannote.utils.NoteAnimationUtils;
+import com.gmy.ttiannote.utils.NoteSqliteManger;
 import com.gmy.ttiannote.utils.ParamUtils;
 import com.gmy.ttiannote.widget.NoteBookText;
 
@@ -40,7 +42,7 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 	private ImageView mImageOne,mImageTwo,mImageThree,mImageFour;//拍照生成的缩略图
 	private ImageView mBottomClick,mBottomSave,mBottomShare,mBottomBack;
 	private final String[] imageChoice=new String[]{"拍照","图册"};
-	private LinkedHashMap<ImageView,String> mImageViews;
+	private LinkedHashMap<ImageView,String> mImageViews;//存储图片用的Map 使用LinkedHashMap防止数据错位
 	private MyLongClickListener myLongClickListener;
 	private Boolean haveStartAnimation = false;
 	
@@ -83,9 +85,9 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 		
 		mImageViews=new LinkedHashMap<ImageView,String>();
 		mImageViews.put(mImageOne,"1");
-		mImageViews.put(mImageTwo,"2");
-		mImageViews.put(mImageThree,"3");
-		mImageViews.put(mImageFour,"4");
+		mImageViews.put(mImageTwo,"1");
+		mImageViews.put(mImageThree,"1");
+		mImageViews.put(mImageFour,"1");
 		
 		mImageAddButton.setOnClickListener(this);
 		mBottomClick.setOnClickListener(this);
@@ -93,12 +95,14 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 		mImageTwo.setOnClickListener(this);
 		mImageThree.setOnClickListener(this);
 		mImageFour.setOnClickListener(this);
+		mBottomSave.setOnClickListener(this);
 		
 		myLongClickListener=new MyLongClickListener();
 		mImageOne.setOnLongClickListener(myLongClickListener);//绑定长按监听
 		mImageTwo.setOnLongClickListener(myLongClickListener);
 		mImageThree.setOnLongClickListener(myLongClickListener);
 		mImageFour.setOnLongClickListener(myLongClickListener);
+		
 	}
 
 	@Override
@@ -192,9 +196,30 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 				return;
 			}
 			break;
+		case R.id.bottom_func_click_save:
+			/*"title varchar(50)," 数据库字段
+			+ "content varchar(50),"
+			+ "imagePathOne varchar(50),"
+			+ "imagePathTwo varchar(50),"
+			+ "imagePathThree varchar(50),"
+			+ "imagePathFour varchar(50),"
+			+ "time varchar(50)"
+			*/
+			if(v.getAlpha()==1){
+				Toast.makeText(getActivity(), "保存",Toast.LENGTH_SHORT).show();
+				ContentValues values=new ContentValues();
+				values.put("title",ParamUtils.getTimeStamp());
+				values.put("content",mNoteBookText.getText().toString());
+				values.put("imagePathOne", mImageViews.get(mImageOne));
+				values.put("imagePathTwo", mImageViews.get(mImageTwo));
+				values.put("imagePathThree", mImageViews.get(mImageThree));
+				values.put("imagePathFour", mImageViews.get(mImageFour));
+				values.put("time", ParamUtils.getTimeStamp());
+				NoteSqliteManger.getInstance().insertSql(getActivity(), values);
+			}
+			break;
 		default:
 			break;
-			
 		}
 	}
 	private class MyLongClickListener implements OnLongClickListener{
@@ -227,7 +252,7 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 			}
 		}
 		if( mImageFour.getVisibility()==View.VISIBLE){
-			Toast.makeText(getActivity(), "拍这么多照片好么...要矜持", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), "拍这么多照片好么……要矜持……不让拍了^_^", Toast.LENGTH_SHORT).show();
 			mImageAddButton.setVisibility(View.GONE);
 		}
 	}
