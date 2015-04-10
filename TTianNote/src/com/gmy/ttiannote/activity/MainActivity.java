@@ -4,30 +4,33 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import com.gmy.ttiannote.R;
 import com.gmy.ttiannote.fragment.LeftFragment;
 import com.gmy.ttiannote.fragment.MidFragment;
 import com.gmy.ttiannote.fragment.RightFragment;
+import com.gmy.ttiannote.widget.ContainerViewPager;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 	public static int screenWidth;
 	public static int screenHeight;
-	private ViewPager mViewPager;
-	private Fragment mLeftFragment, mMidFragment, mRightFragment;
+	private ContainerViewPager mViewPager;
+	private Fragment  mMidFragment, mRightFragment;
+	private LeftFragment mLeftFragment;
 	private ArrayList<Fragment> fragmentLists;
 	private MyFragementAdapter mAdapter;
 	//private Button leftBottomButton, midBottomButton, rightBottomButton; 底部选择图标
@@ -43,7 +46,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	}
 	private void findViewById() {
 		// TODO Auto-generated method stub
-		mViewPager = (ViewPager) findViewById(R.id.main_vp);
+		mViewPager = (ContainerViewPager) findViewById(R.id.main_vp);
 //		leftBottomButton = (Button) findViewById(R.id.leftbottom_tv);
 //		midBottomButton = (Button) findViewById(R.id.midbottom_tv);
 //		rightBottomButton = (Button) findViewById(R.id.rightbottom_tv);
@@ -88,7 +91,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 //		leftBottomButton.setOnClickListener(this);
 //		midBottomButton.setOnClickListener(this);
 //		rightBottomButton.setOnClickListener(this);
-
+		mViewPager.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				if(mViewPager.getCurrentItem()==0 && mLeftFragment!=null){
+					mLeftFragment.onActivityTouch(event);
+				}
+				return false;
+			}
+		});
 		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
@@ -134,13 +147,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 	}
 	
+	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-		
 		return super.onTouchEvent(event);
 	}
-
+	
+	
 	private class MyFragementAdapter extends FragmentPagerAdapter {
 		private ArrayList<Fragment> list;
 
@@ -160,7 +174,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			// TODO Auto-generated method stub
 			return list.size();
 		}
-
+		
 	}
 	
 	//viewpager页面切换动画实现类

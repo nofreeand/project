@@ -54,8 +54,6 @@ public class CloudImageView extends ImageView{
 		right=(float) this.getRight();
 		bottom=(float) this.getBottom();
 		mRectF=new RectF(left, top, right, bottom);
-		System.out.println("cloud----"+left+"--"+top+"--"+right+"--"+bottom);
-		
 		//canvas.drawOval(mRectF, mPaint);
 		canvas.drawCircle((right-left)/2, (bottom-top)/2, getWidth()/2-6, mPaint);
 	}

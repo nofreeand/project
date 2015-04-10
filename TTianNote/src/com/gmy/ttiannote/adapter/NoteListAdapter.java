@@ -8,14 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.gmy.ttiannote.R;
 import com.gmy.ttiannote.dao.NoteContentDAO;
-import com.gmy.ttiannote.displayUtils.FuntionTools;
-import com.gmy.ttiannote.utils.ParamUtils;
 import com.gmy.ttiannote.widget.MidiconImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class NoteListAdapter extends BaseAdapter {
 	private List<NoteContentDAO> mList;
@@ -65,14 +63,11 @@ public class NoteListAdapter extends BaseAdapter {
 		}
 			viewHolder.textViewDate.setText(mList.get(position).getTime());
 			viewHolder.textViewContent.setText(mList.get(position).getContent());
-			System.out.println("====展示"+mList.get(position).getImagePathOne()+
-							   "======="+mList.get(position).getImagePathTwo()+
-							   "======="+mList.get(position).getImagePathThree()+
-							   "======="+mList.get(position).getImagePathFour());
 			if(!mList.get(position).getImagePathOne().equals("1")){
 				viewHolder.imageViewOne.setVisibility(View.VISIBLE);
-				viewHolder.imageViewOne.setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(mContext, 70), 
-						FuntionTools.dip2px(mContext, 70), mList.get(position).getImagePathOne()));
+				ImageLoader.getInstance().displayImage("file://"+mList.get(position).getImagePathOne(), viewHolder.imageViewOne);
+//				viewHolder.imageViewOne.setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(mContext, 70), 
+//						 FuntionTools.dip2px(mContext, 70), mList.get(position).getImagePathOne()));
 			}else {
 				viewHolder.imageViewOne.setVisibility(View.GONE);
 				viewHolder.imageViewTwo.setVisibility(View.GONE);
@@ -82,15 +77,16 @@ public class NoteListAdapter extends BaseAdapter {
 			
 			if (!mList.get(position).getImagePathTwo().equals("1")) {
 				viewHolder.imageViewTwo.setVisibility(View.VISIBLE);
-				viewHolder.imageViewTwo.setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(mContext, 70), 
-						FuntionTools.dip2px(mContext, 70), mList.get(position).getImagePathTwo()));
+				ImageLoader.getInstance().displayImage("file://"+mList.get(position).getImagePathTwo(), viewHolder.imageViewTwo);
+//				viewHolder.imageViewTwo.setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(mContext, 70), 
+//						FuntionTools.dip2px(mContext, 70), mList.get(position).getImagePathTwo()));
 			}
 			
 			if (!mList.get(position).getImagePathThree().equals("1")) {
 				viewHolder.imageViewThree.setVisibility(View.VISIBLE);
-				viewHolder.imageViewThree.setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(mContext, 70), 
-						FuntionTools.dip2px(mContext, 70), mList.get(position).getImagePathThree()));
-				
+				ImageLoader.getInstance().displayImage("file://"+mList.get(position).getImagePathThree(), viewHolder.imageViewThree);
+//				viewHolder.imageViewThree.setImageBitmap(ParamUtils.getSecondBitmap(FuntionTools.dip2px(mContext, 70), 
+//						FuntionTools.dip2px(mContext, 70), mList.get(position).getImagePathThree()));
 			}
 		return convertView;
 	}

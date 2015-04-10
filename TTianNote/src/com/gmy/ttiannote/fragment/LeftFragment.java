@@ -1,21 +1,27 @@
 package com.gmy.ttiannote.fragment;
 
 import com.gmy.ttiannote.R;
+import com.gmy.ttiannote.activity.NoteActivty;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AnalogClock;
+import android.widget.Toast;
 
-public class LeftFragment extends Fragment implements OnGestureListener{
+public class LeftFragment extends Fragment implements OnGestureListener,OnDoubleTapListener{
 
-	
+	private GestureDetectorCompat mDetectorCompat;
 	public LeftFragment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,7 +29,7 @@ public class LeftFragment extends Fragment implements OnGestureListener{
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
+		mDetectorCompat=new GestureDetectorCompat(getActivity(), this);
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +38,13 @@ public class LeftFragment extends Fragment implements OnGestureListener{
 		View view=inflater.inflate(R.layout.left_fragment, container,false);
 		return view;
 	}
+	
+	public void onActivityTouch(MotionEvent event) {
+		// TODO Auto-generated method stub
+		this.mDetectorCompat.onTouchEvent(event);
+	}
+
+	
 	@Override
 	public boolean onDown(MotionEvent e) {
 		// TODO Auto-generated method stub
@@ -61,6 +74,25 @@ public class LeftFragment extends Fragment implements OnGestureListener{
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 			float velocityY) {
+		// TODO Auto-generated method stub
+			
+		return false;
+	}
+	@Override
+	public boolean onSingleTapConfirmed(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean onDoubleTap(MotionEvent e) {
+		// TODO Auto-generated method stub
+		Intent intent=new Intent(getActivity(),NoteActivty.class);
+		startActivity(intent);
+		getActivity().overridePendingTransition(R.anim.activity_out,0);
+		return false;
+	}
+	@Override
+	public boolean onDoubleTapEvent(MotionEvent e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
