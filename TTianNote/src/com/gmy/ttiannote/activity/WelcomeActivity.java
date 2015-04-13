@@ -15,6 +15,7 @@ public class WelcomeActivity extends BaseActivity{
 			case MSG_GO_TO_MAIN:
 				Intent mIntent=new Intent(WelcomeActivity.this,MainActivity.class);
 				startActivity(mIntent);
+				finish();
 				break;
 
 			default:

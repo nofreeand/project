@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.gmy.ttiannote.R;
 import com.gmy.ttiannote.dao.NoteContentDAO;
+import com.gmy.ttiannote.utils.NoteSqliteManger;
 import com.gmy.ttiannote.widget.MidiconImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -24,7 +25,15 @@ public class NoteListAdapter extends BaseAdapter {
 		this.mList=list;
 		this.mContext=context;
 	}
-
+	//select top 1 * frm table_name order by id desc  查询最后一条语句
+	public void notifyDataChanged(){
+		String sqlString="select * from NoteList order by _id desc limit 1";
+		if(mList!=null){
+			mList.addAll(NoteSqliteManger.getInstance().selectExecSql(mContext,sqlString));
+		}
+		this.notifyDataSetChanged();
+	}
+	
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub

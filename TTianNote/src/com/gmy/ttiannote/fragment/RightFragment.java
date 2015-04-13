@@ -25,6 +25,8 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import com.gmy.ttiannote.R;
 import com.gmy.ttiannote.activity.ImageShowActivity;
@@ -96,6 +98,7 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 		mImageThree.setOnClickListener(this);
 		mImageFour.setOnClickListener(this);
 		mBottomSave.setOnClickListener(this);
+		mBottomShare.setOnClickListener(this);
 		
 		myLongClickListener=new MyLongClickListener();
 		mImageOne.setOnLongClickListener(myLongClickListener);//绑定长按监听
@@ -216,7 +219,18 @@ public class RightFragment extends Fragment implements android.view.View.OnClick
 				values.put("imagePathFour", mImageViews.get(mImageFour));
 				values.put("time", ParamUtils.getTimeStamp());
 				NoteSqliteManger.getInstance().insertSql(getActivity(), values);
+				MidFragment.notifyData();
 			}
+			break;
+		case R.id.bottom_func_click_share:
+			Toast.makeText(getActivity(), "分享",Toast.LENGTH_SHORT).show();
+			ShareSDK.initSDK(getActivity());
+			   OnekeyShare oks = new OnekeyShare(); 
+			   // 分享时Notification的图标和文字
+			   oks.setText(mNoteBookText.getText().toString());
+			   oks.setImageUrl(mImageViews.get(mImageOne)); 
+			   // 启动分享GUI
+			   oks.show(getActivity());
 			break;
 		default:
 			break;

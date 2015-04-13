@@ -51,6 +51,34 @@ public class NoteSqliteManger {
 		}
 		return mList;
 	}
+	
+	//使用语句查询
+	public List<NoteContentDAO> selectExecSql(Context context,String sqlString){
+		SQLiteDatabase sqLiteDatabase=null;
+		List<NoteContentDAO> mList=new ArrayList<NoteContentDAO>();
+		try {
+			sqLiteDatabase=NoteSqliteHelper.getDbHelper(context).getWritableDatabase();
+			Cursor mCursor=sqLiteDatabase.rawQuery(sqlString, null);
+			while (mCursor.moveToNext()) {
+				NoteContentDAO mDao=new NoteContentDAO();
+				mDao.set_id(mCursor.getInt(mCursor.getColumnIndex("_id")));
+				mDao.setTitle(mCursor.getString(mCursor.getColumnIndex("title")));
+				mDao.setContent(mCursor.getString(mCursor.getColumnIndex("content")));
+				mDao.setImagePathOne(mCursor.getString(mCursor.getColumnIndex("imagePathOne")));
+				mDao.setImagePathTwo(mCursor.getString(mCursor.getColumnIndex("imagePathTwo")));
+				mDao.setImagePathThree(mCursor.getString(mCursor.getColumnIndex("imagePathThree")));
+				mDao.setImagePathFour(mCursor.getString(mCursor.getColumnIndex("imagePathFour")));
+				mDao.setTime(mCursor.getString(mCursor.getColumnIndex("time")));
+				mList.add(mDao);
+			}
+			mCursor.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally{
+			sqLiteDatabase.close();
+		}
+		return mList;
+	}
 
 	public boolean insertSql(Context context, ContentValues values) {
 		SQLiteDatabase sqLiteDatabase = null;

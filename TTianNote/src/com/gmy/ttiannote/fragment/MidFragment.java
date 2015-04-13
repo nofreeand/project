@@ -1,13 +1,6 @@
 package com.gmy.ttiannote.fragment;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import com.gmy.ttiannote.R;
-import com.gmy.ttiannote.adapter.NoteListAdapter;
-import com.gmy.ttiannote.dao.NoteContentDAO;
-import com.gmy.ttiannote.utils.NoteSqliteManger;
-import com.gmy.ttiannote.widget.TimeListView;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,12 +8,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+
+import com.gmy.ttiannote.R;
+import com.gmy.ttiannote.adapter.NoteListAdapter;
+import com.gmy.ttiannote.dao.NoteContentDAO;
+import com.gmy.ttiannote.utils.NoteSqliteManger;
+import com.gmy.ttiannote.widget.TimeListView;
 
 public class MidFragment extends Fragment {
-	private List<NoteContentDAO> mList;
+	public static List<NoteContentDAO> mList;
 	private com.gmy.ttiannote.widget.TimeListView mTimeListView; 
-	private NoteListAdapter mAdapter;
+	public static NoteListAdapter mAdapter;
 	private Activity mActivity;
 	
 	public MidFragment() {
@@ -28,10 +26,16 @@ public class MidFragment extends Fragment {
 		
 	}
 	
-	private void initData(){
+	private void initData(){ //初始化时使用方法
 		// TODO Auto-generated method stub
 		mList=NoteSqliteManger.getInstance().selectSql(getActivity(), null, null, null, null, null, null);
 		mAdapter=new NoteListAdapter(mList, mActivity);
+	}
+	
+	public static void notifyData(){
+		if(mAdapter!=null){
+			mAdapter.notifyDataChanged();
+		}
 	}
 
 	@Override

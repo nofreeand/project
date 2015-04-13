@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	public static int screenWidth;
 	public static int screenHeight;
 	private ContainerViewPager mViewPager;
-	private Fragment  mMidFragment, mRightFragment;
+	private Fragment  mMidFragment;
 	private LeftFragment mLeftFragment;
 	private ArrayList<Fragment> fragmentLists;
 	private MyFragementAdapter mAdapter;
@@ -61,12 +61,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 		mLeftFragment = new LeftFragment();
 		mMidFragment = new MidFragment();
-		mRightFragment = new RightFragment();
 
 		fragmentLists = new ArrayList<Fragment>();
 		fragmentLists.add(mLeftFragment);
 		fragmentLists.add(mMidFragment);
-		fragmentLists.add(mRightFragment);
 
 	}
 
@@ -133,15 +131,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.leftbottom_tv:
-			mViewPager.setCurrentItem(0, true);
-			break;
-		case R.id.midbottom_tv:
-			mViewPager.setCurrentItem(1, true);
-			break;
-		case R.id.rightbottom_tv:
-			mViewPager.setCurrentItem(2, true);
-			break;
+		
 		default:
 			break;
 		}
