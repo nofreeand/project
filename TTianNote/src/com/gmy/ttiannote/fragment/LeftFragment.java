@@ -88,7 +88,7 @@ public class LeftFragment extends Fragment implements OnGestureListener,OnDouble
 		// TODO Auto-generated method stub
 		Intent intent=new Intent(getActivity(),NoteActivty.class);
 		startActivity(intent);
-		getActivity().overridePendingTransition(R.anim.activity_out,0);
+		getActivity().overridePendingTransition(R.anim.activity_out,R.anim.activity_in);
 		return false;
 	}
 	@Override

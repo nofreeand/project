@@ -10,7 +10,6 @@ public class NoteAnimationUtils {
 		// TODO Auto-generated constructor stub
 	}
 	public static void AnimaitonTranAlpha(View view,Float multiple,int duration){
-		System.out.println("distance===="+view.getX()+"===width=="+view.getWidth());
 		ObjectAnimator mTrans=ObjectAnimator.ofFloat(view, "translationX", multiple*view.getWidth());
 		mTrans.setDuration(duration);
 		ObjectAnimator mAlpha=null;

@@ -47,9 +47,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private void findViewById() {
 		// TODO Auto-generated method stub
 		mViewPager = (ContainerViewPager) findViewById(R.id.main_vp);
-//		leftBottomButton = (Button) findViewById(R.id.leftbottom_tv);
-//		midBottomButton = (Button) findViewById(R.id.midbottom_tv);
-//		rightBottomButton = (Button) findViewById(R.id.rightbottom_tv);
 	}
 
 	private void initData() {
@@ -86,9 +83,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		mViewPager.setPageTransformer(true, new ViewPagerAnimaiton());
 		// 监听事件绑定
 
-//		leftBottomButton.setOnClickListener(this);
-//		midBottomButton.setOnClickListener(this);
-//		rightBottomButton.setOnClickListener(this);
 		mViewPager.setOnTouchListener(new OnTouchListener() {
 			
 			@Override
