@@ -22,6 +22,7 @@ import com.gmy.ttiannote.R;
 import com.gmy.ttiannote.fragment.LeftFragment;
 import com.gmy.ttiannote.fragment.MidFragment;
 import com.gmy.ttiannote.fragment.RightFragment;
+import com.gmy.ttiannote.utils.ParamUtils;
 import com.gmy.ttiannote.widget.ContainerViewPager;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -51,10 +52,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private void initData() {
 		// TODO Auto-generated method stub
-		WindowManager mWindowManager = (WindowManager) this
-				.getSystemService(Context.WINDOW_SERVICE);
-		screenWidth = mWindowManager.getDefaultDisplay().getWidth();
-		screenHeight = mWindowManager.getDefaultDisplay().getHeight();
+//		WindowManager mWindowManager = (WindowManager) this
+//				.getSystemService(Context.WINDOW_SERVICE);
+//		screenWidth = mWindowManager.getDefaultDisplay().getWidth();
+//		screenHeight = mWindowManager.getDefaultDisplay().getHeight();
+		screenWidth=ParamUtils.getScreenSize(this)[0];
+		screenHeight=ParamUtils.getScreenSize(this)[1];
 
 		mLeftFragment = new LeftFragment();
 		mMidFragment = new MidFragment();

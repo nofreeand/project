@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 
@@ -88,6 +89,13 @@ public class ParamUtils {
 	    return bitmap;
 	}
 	
+	public static int[] getScreenSize(Context context){
+		WindowManager mWindowManager = (WindowManager) context
+				.getSystemService(Context.WINDOW_SERVICE);
+		int screenWidth = mWindowManager.getDefaultDisplay().getWidth();
+		int screenHeight = mWindowManager.getDefaultDisplay().getHeight();
+		return new int[]{screenWidth,screenHeight};//宽，高
+	}
 	
 	
 }
