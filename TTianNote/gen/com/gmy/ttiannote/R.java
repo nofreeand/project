@@ -320,71 +320,75 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int title_shadow=0x7f0200a5;
     }
     public static final class id {
-        public static final int action_settings=0x7f070040;
-        public static final int actionbarLayout=0x7f070020;
-        public static final int add_image_bt=0x7f07001b;
-        public static final int add_image_ll=0x7f070016;
-        public static final int atDescTextView=0x7f07002c;
-        public static final int atLayout=0x7f070027;
-        public static final int atTextView=0x7f07002b;
-        public static final int backImageView=0x7f07002f;
-        public static final int bottom_doc_func=0x7f07001d;
+        public static final int action_settings=0x7f070044;
+        public static final int actionbarLayout=0x7f070024;
+        public static final int add_image_bt=0x7f07001f;
+        public static final int add_image_ll=0x7f07001a;
+        public static final int atDescTextView=0x7f070030;
+        public static final int atLayout=0x7f07002b;
+        public static final int atTextView=0x7f07002f;
+        public static final int backImageView=0x7f070033;
+        public static final int bottom_doc_func=0x7f070021;
         public static final int bottom_func_click=0x7f070010;
         public static final int bottom_func_click_back=0x7f07000f;
         public static final int bottom_func_click_save=0x7f07000d;
         public static final int bottom_func_click_share=0x7f07000e;
-        public static final int checkedImageView=0x7f070034;
-        public static final int closeImageView=0x7f070024;
+        public static final int checkedImageView=0x7f070038;
+        public static final int closeImageView=0x7f070028;
         public static final int cloud_four_iv=0x7f070014;
         public static final int cloud_one_iv=0x7f070011;
         public static final int cloud_three_iv=0x7f070013;
         public static final int cloud_two_iv=0x7f070012;
-        public static final int content_tv=0x7f07003f;
-        public static final int divider=0x7f070025;
+        public static final int content_tv=0x7f070043;
+        public static final int divider=0x7f070029;
         public static final int fullscreen=0x7f070003;
-        public static final int gridView=0x7f070031;
-        public static final int hScrollView=0x7f070029;
-        public static final int imageRemoveBtn=0x7f07002e;
-        public static final int imageView=0x7f07002d;
-        public static final int image_four=0x7f07001a;
-        public static final int image_one=0x7f070017;
-        public static final int image_three=0x7f070019;
-        public static final int image_two=0x7f070018;
-        public static final int imagesLinearLayout=0x7f07002a;
+        public static final int gridView=0x7f070035;
+        public static final int hScrollView=0x7f07002d;
+        public static final int imageRemoveBtn=0x7f070032;
+        public static final int imageView=0x7f070031;
+        public static final int image_four=0x7f07001e;
+        public static final int image_one=0x7f07001b;
+        public static final int image_three=0x7f07001d;
+        public static final int image_two=0x7f07001c;
+        public static final int imagesLinearLayout=0x7f07002e;
         public static final int left=0x7f070000;
         public static final int leftbottom_tv=0x7f07000a;
-        public static final int logoImageView=0x7f070032;
-        public static final int mainRelLayout=0x7f070021;
+        public static final int login_bt=0x7f070018;
+        public static final int logoImageView=0x7f070036;
+        public static final int mainRelLayout=0x7f070025;
         public static final int main_vp=0x7f070007;
         public static final int margin=0x7f070002;
         public static final int midbottom_tv=0x7f07000b;
-        public static final int nameTextView=0x7f070033;
+        public static final int nameTextView=0x7f070037;
         public static final int none=0x7f070004;
         public static final int note_activty=0x7f070008;
-        public static final int note_et=0x7f07001c;
+        public static final int note_et=0x7f070020;
         public static final int note_fragment=0x7f070009;
-        public static final int note_layout=0x7f07001e;
-        public static final int notetime_tv=0x7f070039;
-        public static final int okImageView=0x7f070030;
-        public static final int potrait_iv=0x7f070038;
+        public static final int note_layout=0x7f070022;
+        public static final int notetime_tv=0x7f07003d;
+        public static final int okImageView=0x7f070034;
+        public static final int password_et=0x7f070017;
+        public static final int potrait_iv=0x7f07003c;
+        public static final int register_bt=0x7f070019;
         public static final int right=0x7f070001;
         public static final int rightbottom_tv=0x7f07000c;
-        public static final int rightdata_lv=0x7f07001f;
+        public static final int rightdata_lv=0x7f070023;
         public static final int rightmenu_tv=0x7f070015;
         public static final int selected_view=0x7f070005;
         public static final int show_image=0x7f070006;
-        public static final int slidingmenumain=0x7f070035;
-        public static final int state_iv=0x7f07003a;
-        public static final int textCounterTextView=0x7f070028;
-        public static final int textEditText=0x7f070026;
-        public static final int time_line_iv_four=0x7f07003e;
-        public static final int time_line_iv_one=0x7f07003b;
-        public static final int time_line_iv_three=0x7f07003d;
-        public static final int time_line_iv_two=0x7f07003c;
-        public static final int timeline_lv=0x7f070037;
-        public static final int timetitle_iv=0x7f070036;
-        public static final int titleEditText=0x7f070023;
-        public static final int titleLayout=0x7f070022;
+        public static final int slidingmenumain=0x7f070039;
+        public static final int state_iv=0x7f07003e;
+        public static final int textCounterTextView=0x7f07002c;
+        public static final int textEditText=0x7f07002a;
+        public static final int time_line_iv_four=0x7f070042;
+        public static final int time_line_iv_one=0x7f07003f;
+        public static final int time_line_iv_three=0x7f070041;
+        public static final int time_line_iv_two=0x7f070040;
+        public static final int timeline_lv=0x7f07003b;
+        public static final int timetitle_iv=0x7f07003a;
+        public static final int titleEditText=0x7f070027;
+        public static final int titleLayout=0x7f070026;
+        public static final int username_et=0x7f070016;
     }
     public static final class layout {
         public static final int activity_imageshow=0x7f030000;
@@ -396,19 +400,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bottom_widgetlayout=0x7f030006;
         public static final int left_fragment=0x7f030007;
         public static final int left_slidingmenu=0x7f030008;
-        public static final int mid_fragment=0x7f030009;
-        public static final int note_widget=0x7f03000a;
-        public static final int right_fragment=0x7f03000b;
-        public static final int right_slidingmenu=0x7f03000c;
-        public static final int skyblue_editpage=0x7f03000d;
-        public static final int skyblue_editpage_at_layout=0x7f03000e;
-        public static final int skyblue_editpage_inc_image_layout=0x7f03000f;
-        public static final int skyblue_share_actionbar=0x7f030010;
-        public static final int skyblue_share_platform_list=0x7f030011;
-        public static final int skyblue_share_platform_list_item=0x7f030012;
-        public static final int slidingmenumain=0x7f030013;
-        public static final int time_line=0x7f030014;
-        public static final int time_line_item=0x7f030015;
+        public static final int login_welcome=0x7f030009;
+        public static final int mid_fragment=0x7f03000a;
+        public static final int note_widget=0x7f03000b;
+        public static final int right_fragment=0x7f03000c;
+        public static final int right_slidingmenu=0x7f03000d;
+        public static final int skyblue_editpage=0x7f03000e;
+        public static final int skyblue_editpage_at_layout=0x7f03000f;
+        public static final int skyblue_editpage_inc_image_layout=0x7f030010;
+        public static final int skyblue_share_actionbar=0x7f030011;
+        public static final int skyblue_share_platform_list=0x7f030012;
+        public static final int skyblue_share_platform_list_item=0x7f030013;
+        public static final int slidingmenumain=0x7f030014;
+        public static final int time_line=0x7f030015;
+        public static final int time_line_item=0x7f030016;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -461,6 +466,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int multi_share=0x7f0a0006;
         public static final int neteasemicroblog=0x7f0a002e;
         public static final int note_hint=0x7f0a005a;
+        public static final int password=0x7f0a005c;
         public static final int pinterest=0x7f0a0036;
         public static final int pinterest_client_inavailable=0x7f0a0017;
         public static final int pocket=0x7f0a0044;
@@ -494,6 +500,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tumblr=0x7f0a0038;
         public static final int twitter=0x7f0a0027;
         public static final int use_login_button=0x7f0a0055;
+        public static final int username=0x7f0a005b;
         public static final int vkontakte=0x7f0a003a;
         public static final int website=0x7f0a0012;
         public static final int wechat=0x7f0a0023;
@@ -596,7 +603,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:behindOffset
+          @attr name android:behindOffset
         */
         public static final int SlidingMenu_behindOffset = 3;
         /**
@@ -610,7 +617,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:behindScrollScale
+          @attr name android:behindScrollScale
         */
         public static final int SlidingMenu_behindScrollScale = 5;
         /**
@@ -626,7 +633,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:behindWidth
+          @attr name android:behindWidth
         */
         public static final int SlidingMenu_behindWidth = 4;
         /**
@@ -640,7 +647,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:fadeDegree
+          @attr name android:fadeDegree
         */
         public static final int SlidingMenu_fadeDegree = 11;
         /**
@@ -654,7 +661,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:fadeEnabled
+          @attr name android:fadeEnabled
         */
         public static final int SlidingMenu_fadeEnabled = 10;
         /**
@@ -671,7 +678,7 @@ containing a value of this type.
 <tr><td><code>left</code></td><td>0</td><td></td></tr>
 <tr><td><code>right</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.gmy.ttiannote:mode
+          @attr name android:mode
         */
         public static final int SlidingMenu_mode = 0;
         /**
@@ -681,7 +688,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.gmy.ttiannote:selectorDrawable
+          @attr name android:selectorDrawable
         */
         public static final int SlidingMenu_selectorDrawable = 13;
         /**
@@ -695,7 +702,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:selectorEnabled
+          @attr name android:selectorEnabled
         */
         public static final int SlidingMenu_selectorEnabled = 12;
         /**
@@ -705,7 +712,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.gmy.ttiannote:shadowDrawable
+          @attr name android:shadowDrawable
         */
         public static final int SlidingMenu_shadowDrawable = 8;
         /**
@@ -721,7 +728,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.gmy.ttiannote:shadowWidth
+          @attr name android:shadowWidth
         */
         public static final int SlidingMenu_shadowWidth = 9;
         /**
@@ -739,7 +746,7 @@ containing a value of this type.
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 <tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.gmy.ttiannote:touchModeAbove
+          @attr name android:touchModeAbove
         */
         public static final int SlidingMenu_touchModeAbove = 6;
         /**
@@ -757,7 +764,7 @@ containing a value of this type.
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 <tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.gmy.ttiannote:touchModeBehind
+          @attr name android:touchModeBehind
         */
         public static final int SlidingMenu_touchModeBehind = 7;
         /**
@@ -767,7 +774,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.gmy.ttiannote:viewAbove
+          @attr name android:viewAbove
         */
         public static final int SlidingMenu_viewAbove = 1;
         /**
@@ -777,7 +784,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.gmy.ttiannote:viewBehind
+          @attr name android:viewBehind
         */
         public static final int SlidingMenu_viewBehind = 2;
     };

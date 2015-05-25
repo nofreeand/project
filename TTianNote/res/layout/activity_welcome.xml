@@ -3,9 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <TextView 
-        android:text="时间记录了你，你也记录了时间"
+        android:text="@string/timeline_tile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
-
+	<include 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    layout="@layout/login_welcome"
+	    />
+ 
 </RelativeLayout>
